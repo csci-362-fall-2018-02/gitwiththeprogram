@@ -1,15 +1,12 @@
 #!/bin/bash
 
-cat <<- _EOF_
-<HTML>
+echo "<HTML>
 	<HEAD>
 		<TITLE>Directory Listing</TITLE>
 	</HEAD>
-	<BODY>
-		for d in /*; do
-			<P>echo $d;</P>
+	<BODY>"
+		for d in ./*; do
+			echo "<P>"; echo $d; echo "</P>"
 		done
-	</BODY>
+echo	"</BODY>
 </HTML>"
-
-_EOF_
