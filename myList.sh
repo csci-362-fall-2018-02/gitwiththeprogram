@@ -1,9 +1,11 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
 list()
 {
-  echo "Current File Path: "${PWD}
-  for entry in ./*; 
+  echo "Listing directory contents of: "$DIR""
+  for entry in $DIR/*; 
   do
     echo "<P>"
       echo $entry
