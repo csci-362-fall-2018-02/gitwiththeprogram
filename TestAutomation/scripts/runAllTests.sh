@@ -19,9 +19,8 @@ DIR=$(dirname $0)
 echo "Listing directory contents of: "$DIR""
 for entry in $DIR/*;
 do
-  echo "<P>"
+  echo
   echo $entry
-  echo "</P>"
 done
 
 # cat <<- EOF
