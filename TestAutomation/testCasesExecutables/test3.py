@@ -20,7 +20,7 @@ def makeFile():
 
 def findFile():
     name = "justAnotherTest.txt"
-    path = "/home/brandi"
+    path = "."
     failed = "the file exists: test failure"
     passed = "the file doesnt exist: test passed"
     for root, dirs, files in os.walk(path):

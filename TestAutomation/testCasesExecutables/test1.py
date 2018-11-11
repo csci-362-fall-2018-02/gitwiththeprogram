@@ -22,9 +22,10 @@ def makeWriteFile():
 
 def findFile():
     name = "testFile.txt"
-    path = "/home/brandi"
-    for root, dirs, files in os.walk(path):
-        if name in files:
+    path = "."
+    for dirName, subdirList, fileList in os.walk(path):
+        #print(fileList)
+        if name in fileList:
             print("file found!")
 
 makeWriteFile()
