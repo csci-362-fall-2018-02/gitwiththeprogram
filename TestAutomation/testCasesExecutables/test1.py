@@ -21,6 +21,7 @@ def makeWriteFile():
     pyautogui.press('enter')
 
 def findFile():
+    os.chdir("/home/Desktop/github/gitwiththeprogram")
     name = "testFile.txt"
     path = "."
     for dirName, subdirList, fileList in os.walk(path):

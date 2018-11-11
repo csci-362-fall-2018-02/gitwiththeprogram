@@ -21,6 +21,7 @@ for entry in $DIR/*;
 do
   echo
   echo $entry
+  python $entry
 done
 
 # cat <<- EOF
