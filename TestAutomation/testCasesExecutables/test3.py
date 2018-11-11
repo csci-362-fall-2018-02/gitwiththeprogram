@@ -19,17 +19,22 @@ def makeFile():
     pyautogui.press('enter')
 
 def findFile():
+    file = 0
     name = "justAnotherTest.txt"
     path = "."
-    failed = "the file exists: test failure"
-    passed = "the file doesnt exist: test passed"
+    failed = "Test2: Failed (the file exists)"
+    passed = "Test2: Passed (the file doesnt exist)"
     for root, dirs, files in os.walk(path):
         if name in files:
-            print("file found!")
+            #print("file found!")
+            file = 1
+            print(passed)
+            #return failed
+        #else:
+            #return passed
+    if(file ==0):
+        print(failed)
 
-            return failed
-        else:
-
-            return passed
+        
 makeFile()
 print(findFile())

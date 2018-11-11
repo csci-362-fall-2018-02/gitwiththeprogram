@@ -21,7 +21,7 @@ for entry in $DIR/*;
 do
   echo
   echo $entry
-  python $entry
+  python $entry >> testResults.txt
 done
 
 # cat <<- EOF

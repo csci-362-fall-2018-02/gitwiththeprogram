@@ -23,12 +23,16 @@ def makeWriteFile():
 
 def findFile():
     os.chdir("/home/brandi/Desktop/github/gitwiththeprogram/TestAutomation/scripts")
+    file = 0
     name = "testFile.txt"
     path = "."
     for dirName, subdirList, fileList in os.walk(path):
         #print(fileList)
         if name in fileList:
-            print("file found!")
+            file = 1
+            print("Test1: Passed (file found!)")
+    if (file ==0):
+        print("Test1: Filed (file not found)")
 
 makeWriteFile()
 findFile();

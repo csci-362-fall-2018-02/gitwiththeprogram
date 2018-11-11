@@ -21,11 +21,15 @@ def makeWriteFile():
     pyautogui.press('enter')
 
 def findFile():
+    file = 0
     name = "testFile4.txt"
     path = "."
     for root, dirs, files in os.walk(path):
         if name in files:
-            print("file found!\nTest Passed")
+            file = 1
+            print("Test4: Passed (file found!)")
+    if (file ==0):
+        print("Test4: Failed (File not found)")
 
 makeWriteFile()
 findFile()

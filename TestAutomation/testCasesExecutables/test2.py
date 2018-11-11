@@ -31,8 +31,8 @@ addToFile()
 
 def compareLines():
     os.chdir("/home/brandi/Desktop/github/gitwiththeprogram/TestAutomation/scripts")
-    failed = "the lines do no match"
-    passed = "lines match-Test Passed"
+    failed = "Test2: Failed (the lines do no matc)"
+    passed = "Test2: Passed (lines match)"
     newText = readExistingFile()
     if (existingText == newText):
         return passed
