@@ -21,7 +21,7 @@ def makeWriteFile():
 
 def findFile():
     name = "testFile.txt"
-    path = "/home/misae"
+    path = "."
     for root, dirs, files in os.walk(path):
         if name in files:
             print("file found!")
