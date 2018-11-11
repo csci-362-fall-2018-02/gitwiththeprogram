@@ -6,8 +6,9 @@ from subprocess import call
 import pyautogui
 
 
-
+os.chdir("/home/brandi/Desktop/github/gitwiththeprogram/TestAutomation/testCasesExecutables")
 def makeWriteFile():
+    #print(sys.path)
     pyautogui.typewrite('nvim')
     pyautogui.press('space')
     pyautogui.typewrite('testFile.txt')
@@ -21,7 +22,7 @@ def makeWriteFile():
     pyautogui.press('enter')
 
 def findFile():
-    #os.chdir("/home/Desktop/github/gitwiththeprogram")
+    os.chdir("/home/brandi/Desktop/github/gitwiththeprogram/TestAutomation/scripts")
     name = "testFile.txt"
     path = "."
     for dirName, subdirList, fileList in os.walk(path):
