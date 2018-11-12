@@ -1,40 +1,37 @@
+# Opens new nvim file and closes without saving.
+# (Test should show that a file was not made)
+# This tests the :q! command
+
 import sys
 import tempfile
 import os
 from subprocess import call
 import pyautogui
 
-# a test opens nvim and doesnt save anything
-#test should show that a file was not made
+# dirPath is the TestAutomation directory (parent directory of
+# parent directory of executing script)
+homeDir = os.getenv('HOME')
+dirPath = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 
-def makeFile():
-
+def makeFile(fileName):
     pyautogui.typewrite('nvim')
     pyautogui.press('space')
-    pyautogui.typewrite('justAnotherTest.txt')
+    pyautogui.typewrite(homeDir + "/" + fileName)
     pyautogui.press('enter')
     pyautogui.press('esc')
     pyautogui.typewrite(':q!')
     pyautogui.press('enter')
 
-def findFile():
-    file = 0
-    name = "justAnotherTest.txt"
-    path = "."
-    failed = "Test3: Failed (the file exists)"
-    passed = "Test3: Passed (the file doesnt exist)"
-    for root, dirs, files in os.walk(path):
-        if name in files:
-            #print("file found!")
-            file = 1
-            print(passed)
-            #return failed
-        #else:
-            #return passed
-    if(file ==0):
-        print(failed)
+def findFile(fileName):
+    found = 0
+    for root, dirs, files in os.walk(homeDir):
+        if fileName in files:
+            found = 1
+            print("Failed (the file exists)")
+    if (found == 0):
+        print("Passed (the file doesn't exist)")
 
 
-makeFile()
-findFile()
+makeFile("test3.txt")
+findFile("test3.txt")
