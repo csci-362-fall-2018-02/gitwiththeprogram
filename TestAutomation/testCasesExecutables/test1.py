@@ -1,3 +1,5 @@
+# This test checks that Neovim can create a new file, write a
+# basic sentence, and save the file.
 
 import sys
 import tempfile
@@ -6,33 +8,34 @@ from subprocess import call
 import pyautogui
 
 
-os.chdir("/home/brandi/Desktop/github/gitwiththeprogram/TestAutomation/testCasesExecutables")
-def makeWriteFile():
-    #print(sys.path)
+# Creates and saves a file containing sampleText
+def makeWriteFile(sampleText, fileName):
+    # Create testFile.txt in home directory
     pyautogui.typewrite('nvim')
     pyautogui.press('space')
-    pyautogui.typewrite('testFile.txt')
+    pyautogui.typewrite(fileName)
     pyautogui.press('enter')
-
+    # Enter sampleText, save and quit
     pyautogui.press('i')
-    pyautogui.typewrite('beth is a clone ')
+    pyautogui.typewrite(sampleText)
     pyautogui.press('enter')
     pyautogui.press('esc')
-    pyautogui.typewrite(':wq!')
+    pyautogui.typewrite(':wq')
     pyautogui.press('enter')
 
-def findFile():
-    os.chdir("/home/brandi/Desktop/github/gitwiththeprogram/TestAutomation/scripts")
-    file = 0
-    name = "testFile.txt"
-    path = "."
-    for dirName, subdirList, fileList in os.walk(path):
-        #print(fileList)
-        if name in fileList:
-            file = 1
-            print("Test1: Passed (file found!)")
-    if (file ==0):
-        print("Test1: Filed (file not found)")
 
-makeWriteFile()
-findFile();
+# Checks that a file has actually been created in home directory
+def findFile(fileName):
+    found = 0
+    # Search home directory for the file
+    for dirName, subdirList, fileList in os.walk(os.getenv('HOME')):
+        if fileName in fileList:
+            found = 1
+            print("Passed (file found!)")
+            break  # So it doesn't print "found" multiple times
+    if (found == 0):
+        print("Failed (file not found)")
+
+
+makeWriteFile("This is test number 1.", "testFile1.txt")
+findFile("testFile1.txt");
