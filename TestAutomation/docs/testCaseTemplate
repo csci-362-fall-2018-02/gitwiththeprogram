@@ -1,0 +1,20 @@
+_____TESTING TEMPLATE_____
+
+Test number will be defined in the file name.
+
+Test requirement is defined in a comment at the top, alongside the component 
+being tested, as well as the methods being used to test it.
+
+expected input and output will follow.
+
+example
+
+./test1.py
+
+# A test to make and save a file, testing a nvim core function
+# uses the i and x functions
+# outcome should be file exists
+
+def (inputfunction)
+
+def (checking the input to be correct function)
