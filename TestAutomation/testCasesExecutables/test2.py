@@ -1,4 +1,5 @@
 # Checks that Neovim can add lines to an existing file.
+# Specifically, tests the :o command.
 
 import sys
 import tempfile
@@ -31,9 +32,8 @@ def addToFile(sampleText, fileName):
     pyautogui.typewrite(sampleText)
     pyautogui.press('enter')
     pyautogui.press('esc')
-    pyautogui.typewrite(':wq')
+    pyautogui.typewrite(':wq!')
     pyautogui.press('enter')
-
 
 # Compares two files to see if content is the same
 def compareLines(file1, file2):
@@ -43,19 +43,12 @@ def compareLines(file1, file2):
         print("Failed (the lines do not match)")
 
 
-# Copy test2-append (in testCases) so it can be restored after
-originalFile = readExistingFile(dirPath +
-    "/testCases/test2-append.txt")
-
 # Appends some text to test2-append
 addToFile("Second line.",
     dirPath + "/testCases/test2-append.txt")
 
+
 # Compare to file with the correct text
+print("Test 2: ", end="")
 compareLines(dirPath + "/testCases/test2-correct.txt",
     dirPath + "/testCases/test2-append.txt")
-
-# Restore original text of test2-append
-f = open(dirPath + "/testCases/test2-append.txt", "w")
-f.writelines(originalFile)
-f.close()
