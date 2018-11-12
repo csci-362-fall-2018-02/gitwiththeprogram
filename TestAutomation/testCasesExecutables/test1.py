@@ -33,10 +33,10 @@ def findFile(fileName):
     for dirName, subdirList, fileList in os.walk(homeDir):
         if fileName in fileList:
             found = 1
-            print("Passed (file found!)")
+            print("Test1: Passed (file found!)")
             break  # So it doesn't print "found" multiple times
     if (found == 0):
-        print("Failed (file not found)")
+        print("Test1: Failed (file not found)")
 
 
 makeWriteFile("This is test 1.", "testFile1.txt")
