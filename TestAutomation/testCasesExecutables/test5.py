@@ -31,10 +31,10 @@ def makeFile(sampleText, fileName):
 
 
 def compareLines(file1, file2):
-    if (filecmp.cmp(file1, file2)):
-        print("Passed (lines match)")
+    if (os.path.isfile(file2)):
+        print("Failed (File still exists)")
     else:
-        print("Failed (the lines do not match)")
+        print("Passed (The file does not exist)")
 
 
 makeFile("Hello World!", "test5.txt")
