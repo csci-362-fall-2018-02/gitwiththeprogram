@@ -1,0 +1,5 @@
+Test1: Passed (file found!)
+Test2: Passed (lines match)
+Test3: Failed (the file exists)
+Test4: Failed (File not found)
+Test5: Failed (file not found)

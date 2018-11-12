@@ -22,8 +22,8 @@ def findFile():
     file = 0
     name = "justAnotherTest.txt"
     path = "."
-    failed = "Test2: Failed (the file exists)"
-    passed = "Test2: Passed (the file doesnt exist)"
+    failed = "Test3: Failed (the file exists)"
+    passed = "Test3: Passed (the file doesnt exist)"
     for root, dirs, files in os.walk(path):
         if name in files:
             #print("file found!")
@@ -35,6 +35,6 @@ def findFile():
     if(file ==0):
         print(failed)
 
-        
+
 makeFile()
-print(findFile())
+findFile()
