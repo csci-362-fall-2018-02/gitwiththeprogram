@@ -1,12 +1,12 @@
 Test Oracle
 
 In the case of our tests, the output of the program is compared to the expected
-output should the program be functioning properly. 
+output should the program be functioning properly.
 
 The expected output is documented as follows:
 
-Test 1: The files exists.
-Test 2: The written files match.
-Test 3: The file does not exist.
-Test 4: The file exists.
-Test 5: The file exists.
+Test 1: Passed (The files exists.)
+Test 2: Passed (The written files match.)
+Test 3: Passed (The file does not exist.)
+Test 4: Passed (The file exists.)
+Test 5: Passed (The file exists.)
