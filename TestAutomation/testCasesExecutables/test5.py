@@ -40,6 +40,6 @@ def compareLines(file1, file2):
 makeFile("Hello World!", "test5.txt")
 
 # Compare to file with the correct text
-print("Test 5: ", end="")
+print("Test 5: "),
 compareLines(dirPath + "/testCases/test5-correct.txt",
     homeDir + "/test5.txt")
