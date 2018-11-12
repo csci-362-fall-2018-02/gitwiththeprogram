@@ -1,37 +1,46 @@
-# nvim core function involves writing to a file properly
-# specifically testing the ability to write ('i') save ('w') then quit ('q')
+# Tests another core command with nvim, the 'x' command
+# specifically tests using the ability to write ('i') save ('w') and quit ('q')
+# Ensures the stored file does contain the corrext text
 
 import sys
 import tempfile
 import os
 from subprocess import call
 import pyautogui
+import filecmp
 
-# creating the file, and writing 'aw geez rick' to that file 
-def makeWriteFile():
+# dirPath is the TestAutomation directory (parent directory of
+# parent directory of executing script)
+homeDir = os.getenv('HOME')
+dirPath = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
+
+# Creates and saves a file containing sampleText
+def makeFile(sampleText, fileName):
+    # Create file in home directory
     pyautogui.typewrite('nvim')
     pyautogui.press('space')
-    pyautogui.typewrite('testFile4.txt')
+    pyautogui.typewrite(homeDir + "/" + fileName)
     pyautogui.press('enter')
-
+    # Enter sampleText
     pyautogui.press('i')
-    pyautogui.typewrite('aw geez rick ')
-    pyautogui.press('enter')
+    pyautogui.typewrite(sampleText)
+    # Enter command mode, delete the last character, save and quit
     pyautogui.press('esc')
+    pyautogui.press('x')
     pyautogui.typewrite(':wq')
     pyautogui.press('enter')
 
-# searching for and finding that file
-def findFile():
-    found = 0
-    name = "testFile4.txt"
-    path = "."
-    for root, dirs, files in os.walk(path):
-        if name in files:
-            found = 1
-            print("Test4: Passed (file found!)")
-    if (found ==0):
-        print("Test4: Failed (File not found)")
+#Tests the files to make sure it matches
+def compareLines(file1, file2):
+    if (filecmp.cmp(file1, file2)):
+        return("Passed (lines match)")
+    else:
+        return("Failed (the lines do not match)")
 
-makeWriteFile()
-findFile()
+
+makeFile("Hello World!", "test4.txt")
+
+# Compare to file with the correct text
+print("Test 4: " +compareLines(dirPath + "/testCases/test4-correct.txt",
+    homeDir + "/test4.txt"))
