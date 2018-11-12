@@ -38,9 +38,9 @@ def addToFile(sampleText, fileName):
 # Compares two files to see if content is the same
 def compareLines(file1, file2):
     if (filecmp.cmp(file1, file2)):
-        print("Passed (lines match)")
+        return("Passed (lines match)")
     else:
-        print("Failed (the lines do not match)")
+        return("Failed (the lines do not match)")
 
 
 # Appends some text to test2-append
@@ -49,6 +49,5 @@ addToFile("Second line.",
 
 
 # Compare to file with the correct text
-print("Test 2: ", end="")
-compareLines(dirPath + "/testCases/test2-correct.txt",
-    dirPath + "/testCases/test2-append.txt")
+print("Test 2: " + compareLines(dirPath + "/testCases/test2-correct.txt",
+    dirPath + "/testCases/test2-append.txt"))
