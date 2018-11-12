@@ -28,9 +28,9 @@ def findFile(fileName):
     for root, dirs, files in os.walk(homeDir):
         if fileName in files:
             found = 1
-            print("Failed (the file exists)")
+            print("Test3: Failed (the file exists)")
     if (found == 0):
-        print("Passed (the file doesn't exist)")
+        print("Test3: Passed (the file doesn't exist)")
 
 
 makeFile("test3.txt")
