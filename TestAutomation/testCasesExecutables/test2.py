@@ -16,8 +16,8 @@ dirPath = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 def readExistingFile(fileName):
     fileToRead = open(fileName, "r")
-    existingLines = fileToRead.readlines()
-    fileToRead.close()
+    existingLines = fileToRead.read()
+    #fileToRead.close()
     return existingLines
 
 
@@ -37,10 +37,18 @@ def addToFile(sampleText, fileName):
 
 # Compares two files to see if content is the same
 def compareLines(file1, file2):
-    if (filecmp.cmp(file1, file2)):
-        return("Passed (lines match)")
+    fileCorrect = readExistingFile(file1)
+    fileCheck = readExistingFile(file2)
+    if(fileCorrect == fileCheck):
+        return ("Passed (lines match)")
     else:
-        return("Failed (the lines do not match)")
+        return ("Failed (the lines do not match)")
+    # '''
+    # if (filecmp.cmp(file1, file2)):
+    #     return("Passed (lines match)")
+    # else:
+    #     return("Failed (the lines do not match)")
+    # '''
 
 
 # Appends some text to test2-append
@@ -49,5 +57,5 @@ addToFile("Second line.",
 
 
 # Compare to file with the correct text
-print("Test 2: " + compareLines(dirPath + "/testCases/test2-correct.txt",
+print("Test2: " + compareLines(dirPath + "/testCases/test2-correct.txt",
     dirPath + "/testCases/test2-append.txt"))

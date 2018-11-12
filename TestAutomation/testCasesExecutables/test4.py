@@ -32,14 +32,13 @@ def makeFile(sampleText, fileName):
 
 def compareLines(file1, file2):
     if (filecmp.cmp(file1, file2)):
-        print("Passed (lines match)")
+        return("Passed (lines match)")
     else:
-        print("Failed (the lines do not match)")
+        return("Failed (the lines do not match)")
 
 
 makeFile("Hello World!", "test4.txt")
 
 # Compare to file with the correct text
-print("Test 4: ", end="")
-compareLines(dirPath + "/testCases/test4-correct.txt",
-    homeDir + "/test4.txt")
+print("Test 4: " +compareLines(dirPath + "/testCases/test4-correct.txt",
+    homeDir + "/test4.txt"))
