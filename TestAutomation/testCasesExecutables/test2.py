@@ -31,7 +31,7 @@ existingText = readExistingFile()
 addToFile()
 
 def compareLines():
-    os.chdir("/home/brandi/Desktop/github/gitwiththeprogram/TestAutomation/scripts")
+    #os.chdir("/home/brandi/Desktop/github/gitwiththeprogram/TestAutomation/scripts")
     failed = "Test2: Failed (the lines do no matc)"
     passed = "Test2: Passed (lines match)"
     newText = readExistingFile()
