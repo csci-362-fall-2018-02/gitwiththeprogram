@@ -1,12 +1,14 @@
+# testing another method to write to a file and quit
+# nvim's various commands, in this case 'x' are crucial to it's proper function
+# expected output is to confirm that the file does exist
+
 import sys
 import tempfile
 import os
 from subprocess import call
 import pyautogui
 
-# A test to simply make and save a file
-#specifically testing x
-
+# creates and writes to the file
 def makeWriteFile():
     pyautogui.typewrite('nvim')
     pyautogui.press('space')
@@ -20,6 +22,7 @@ def makeWriteFile():
     pyautogui.typewrite(':x')
     pyautogui.press('enter')
 
+# confirms that the file does exist
 def findFile():
     file = 0
     name = "testFile5.txt"

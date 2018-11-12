@@ -1,12 +1,13 @@
+# nvim core function involves writing to a file properly
+# specifically testing the ability to write ('i') save ('w') then quit ('q')
+
 import sys
 import tempfile
 import os
 from subprocess import call
 import pyautogui
 
-# A test to simply make and save a file
-#specifically testing wq
-
+# creating the file, and writing 'aw geez rick' to that file 
 def makeWriteFile():
     pyautogui.typewrite('nvim')
     pyautogui.press('space')
@@ -20,6 +21,7 @@ def makeWriteFile():
     pyautogui.typewrite(':wq')
     pyautogui.press('enter')
 
+# searching for and finding that file
 def findFile():
     found = 0
     name = "testFile4.txt"

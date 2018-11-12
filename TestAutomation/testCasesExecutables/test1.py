@@ -1,5 +1,7 @@
-# This test checks that Neovim can create a new file, write a
-# basic sentence, and save the file.
+# Requirement; Neovim's core functionalities involve creating and saving files
+# This test checks that Neovim can create a new file, write a basic sentence,
+# and save the file.
+# Output should be a file 
 
 import sys
 import tempfile
