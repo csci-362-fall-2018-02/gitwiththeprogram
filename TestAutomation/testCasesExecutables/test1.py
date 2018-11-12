@@ -7,13 +7,15 @@ import os
 from subprocess import call
 import pyautogui
 
+homeDir = os.getenv('HOME')
+
 
 # Creates and saves a file containing sampleText
 def makeWriteFile(sampleText, fileName):
     # Create testFile.txt in home directory
     pyautogui.typewrite('nvim')
     pyautogui.press('space')
-    pyautogui.typewrite(fileName)
+    pyautogui.typewrite(homeDir + "/" + fileName)
     pyautogui.press('enter')
     # Enter sampleText, save and quit
     pyautogui.press('i')
@@ -28,7 +30,7 @@ def makeWriteFile(sampleText, fileName):
 def findFile(fileName):
     found = 0
     # Search home directory for the file
-    for dirName, subdirList, fileList in os.walk(os.getenv('HOME')):
+    for dirName, subdirList, fileList in os.walk(homeDir):
         if fileName in fileList:
             found = 1
             print("Passed (file found!)")
@@ -37,5 +39,5 @@ def findFile(fileName):
         print("Failed (file not found)")
 
 
-makeWriteFile("This is test number 1.", "testFile1.txt")
+makeWriteFile("This is test 1.", "testFile1.txt")
 findFile("testFile1.txt");
