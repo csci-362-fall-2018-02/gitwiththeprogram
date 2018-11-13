@@ -5,7 +5,6 @@
 COUNTER='1'
 REPORTSFILE='./reports/testResults'$COUNTER'.txt'
 COMPAREFILE='./reports/test'$COUNTER'-correct.txt'
-TEMPFILE='./temp/tempfile'$COUNTER'.txt'
 echo "here"
 while [ -f $REPORTSFILE ]
 do
@@ -17,13 +16,14 @@ done
 
 cd testCasesExecutables
 echo "Running all tests in folder: " && pwd
-echo "Outputting report to:" $FILE
+echo "Outputting report to:" $REPORTSFILE
 
 for entry in *;
 do
   echo
   echo $entry
-  python3 ./../scripts testInterpreter.py $entry > ./../$TEMPFILE
+  TEMPFILE='./temp/tempfile'$entry
+  python3 ./../scripts/testInterpreter.py $entry > ./../$TEMPFILE
   if diff ./../$TEMPFILE ./../$COMPAREFILE >/dev/null 2>&1 
   then
      echo -n "Test " && echo -n $COUNTER && echo "passed!" > ./../$REPORTSFILE
