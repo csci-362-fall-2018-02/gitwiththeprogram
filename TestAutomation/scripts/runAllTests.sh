@@ -15,24 +15,29 @@ do
 done
 
 cd testCasesExecutables
-echo "Running all tests in folder: " && pwd
+echo -n "Running all tests in folder: "
+pwd
 echo "Outputting report to:" $REPORTSFILE
 
 for entry in *;
 do
   echo
-  echo $entry
+  echo -n $entry
   TEMPFILE='./temp/tempfile'$entry
   python3 ./../scripts/testInterpreter.py $entry > ./../$TEMPFILE
   if diff ./../$TEMPFILE ./../$COMPAREFILE >/dev/null 2>&1 
   then
-     echo -n "Test " && echo -n $COUNTER && echo "passed!" >> ./../$REPORTSFILE
+     echo " passed"
+     echo -n $entry >> ./../$REPORTSFILE
+     echo " passed" >> ./../$REPORTSFILE
   else
-     echo -n "Test " && echo -n $COUNTER && echo "failed." >> ./../$REPORTSFILE
+     echo " failed"
+     echo -n $entry >> ./../$REPORTSFILE
+     echo " failed" >> ./../$REPORTSFILE
   fi
 done
 cd ..
 
-echo "cleaning temp"
-cd ./temp/
-rm ./*
+#echo "cleaning temp"
+#cd ./temp/
+#rm ./*
