@@ -38,6 +38,6 @@ do
 done
 cd ..
 
-#echo "cleaning temp"
-#cd ./temp/
-#rm ./*
+echo "cleaning temp"
+cd ./temp/
+rm ./*
