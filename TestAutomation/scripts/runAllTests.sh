@@ -26,9 +26,9 @@ do
   python3 ./../scripts/testInterpreter.py $entry > ./../$TEMPFILE
   if diff ./../$TEMPFILE ./../$COMPAREFILE >/dev/null 2>&1 
   then
-     echo -n "Test " && echo -n $COUNTER && echo "passed!" > ./../$REPORTSFILE
+     echo -n "Test " && echo -n $COUNTER && echo "passed!" >> ./../$REPORTSFILE
   else
-     echo -n "Test " && echo -n $COUNTER && echo "failed." > ./../$REPORTSFILE
+     echo -n "Test " && echo -n $COUNTER && echo "failed." >> ./../$REPORTSFILE
   fi
 done
 cd ..
