@@ -1,5 +1,5 @@
 #!/bin/sh
-# This bash script runs all the tests in the testCasesExecutables folder, and 
+# This bash script runs all the tests in the testCasesExecutables folder, and
 # then outputs to a file in the formal of testResults(counter).txt
 
 COUNTER='1'
@@ -24,8 +24,8 @@ do
   echo
   echo -n $entry
   TEMPFILE='./temp/tempfile'$entry
-  python3 ./../scripts/testInterpreter.py $entry > ./../$TEMPFILE
-  if diff ./../$TEMPFILE ./../$COMPAREFILE >/dev/null 2>&1 
+  python ./../scripts/testInterpreter.py $entry > ./../$TEMPFILE
+  if diff ./../$TEMPFILE ./../$COMPAREFILE >/dev/null 2>&1
   then
      echo " passed"
      echo -n $entry >> ./../$REPORTSFILE
