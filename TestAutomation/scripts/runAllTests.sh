@@ -24,7 +24,10 @@ do
   echo
   echo -n $entry
   TEMPFILE='./temp/tempfile'$entry
-  python ./../scripts/testInterpreter.py $entry > ./../$TEMPFILE
+  python ./../scripts/testInterpreter.py $entry
+  #took this out becuase we want the python script to make a files
+  #not make a file of everything printed to terminal
+  #> ./../$TEMPFILE
   if diff ./../$TEMPFILE ./../$COMPAREFILE >/dev/null 2>&1
   then
      echo " passed"
@@ -38,6 +41,8 @@ do
 done
 cd ..
 
-echo "cleaning temp"
-cd ./temp/
-rm ./*
+#commented out for de-bugging purposes
+
+# echo "cleaning temp"
+# cd ./temp/
+# rm ./*
