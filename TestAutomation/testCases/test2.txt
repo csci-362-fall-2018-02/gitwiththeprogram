@@ -1,0 +1,1 @@
+nvim <space> test2-output.txt <enter> <o> Testing the o function <enter> <esc> :wq <enter> 

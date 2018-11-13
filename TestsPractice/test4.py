@@ -7,7 +7,7 @@ import tempfile
 import os
 from subprocess import call
 import pyautogui
-import filecmp
+#import filecmp #only works on python3 (need to change)
 
 # dirPath is the TestAutomation directory (parent directory of
 # parent directory of executing script)
@@ -33,14 +33,26 @@ def makeFile(sampleText, fileName):
 
 #Tests the files to make sure it matches
 def compareLines(file1, file2):
-    if (filecmp.cmp(file1, file2)):
-        return("Passed (lines match)")
+    file1text = readExistingFile(file1)
+    file2text = readExistingFile(file2)
+    if(file1text == file2text):
+        return ("Passed (lines match)")
     else:
-        return("Failed (the lines do not match)")
+        return ("Failed (Lines don't match)")
+    # if (filecmp.cmp(file1, file2)):
+    #     return("Passed (lines match)")
+    # else:
+    #     return("Failed (the lines do not match)")
+
+def readExistingFile(fileName):
+    fileToRead = open(fileName, "r")
+    existingLines = fileToRead.read()
+    #fileToRead.close()
+    return existingLines
 
 
 makeFile("Hello World!", "test4.txt")
 
 # Compare to file with the correct text
-print("Test 4: " +compareLines(dirPath + "/testCases/test4-correct.txt",
+print("Test 4: " + compareLines(dirPath + "/testCases/test4-correct.txt",
     homeDir + "/test4.txt"))

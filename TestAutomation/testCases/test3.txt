@@ -1,0 +1,1 @@
+nvim <space> test3-output.txt <enter> <esc> :q! <enter> 

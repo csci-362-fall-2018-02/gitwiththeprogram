@@ -1,0 +1,1 @@
+nvim <space> test5-output.txt <enter> <i> Testing the u function <esc> <u> :wq <enter> 
