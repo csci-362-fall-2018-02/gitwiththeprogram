@@ -1,0 +1,4 @@
+nsert:wq
+nvim /home/john/cofc/gitWithTheProgram/TestAutomation/temp/tempfiletest2.txt
+oTestingtheofunction
+

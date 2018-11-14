@@ -28,4 +28,4 @@ for word in words:
         pyautogui.typewrite(temp_file)
     #if not, then plain text
     else:
-        pyautogui.typewrite(word)
+        pyautogui.typewrite(word + ' ')
