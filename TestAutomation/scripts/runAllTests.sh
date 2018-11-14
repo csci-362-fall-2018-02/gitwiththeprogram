@@ -20,6 +20,7 @@
 # of doing the job, but I think this script has turned out quite nicely
 #
 
+DEBUG ='0'
 
 # Organizational variables, makes things prettier and easier to modify
 ROOTFOLDER=$(dirname $(dirname $(realpath $0)))
@@ -56,7 +57,7 @@ do
   echo "Running test with commands stored in file: $(basename $entry)"
 
   TEMPFILE="$TEMPFOLDER/tempfile$(basename $entry)"
-  COMPAREFILE="$COMPAREFOLDER/test$COUNTER\-correct.txt"
+  COMPAREFILE="$COMPAREFOLDER/correct-$(basename $entry)"
   
   echo "outputting to tempfile located at $TEMPFILE"
 
@@ -67,9 +68,18 @@ do
   # but, if you just want the test1.txt, you can use basename, as I did above
   # eg. $(basename $entry) 
 
-  python $SCRIPTSFOLDER/testInterpreter.py $entry $TEMPFILE 
+ if $DEBUG
+  then
+     echo "passing files $entry and $TEMPFILE to the python script"
+ fi
+
+  python $SCRIPTSFOLDER/pocTestInterpreter.py $entry $TEMPFILE 
   
   #compares files, routes actual diff output to be deleted
+ if $DEBUG 
+  then
+     echo "comparing \"$(cat $TEMPFILE)\" and \"$(cat $COMPAREFILE)\""
+ fi
  if diff $TEMPFILE $COMPAREFILE >/dev/null 2>&1
   then
      echo " passed "
@@ -87,4 +97,4 @@ echo "tests finished, overall results: $TOTALPASSED passed $TOTALFAILED failed"
 echo "RESULTS: $TOTALPASSED passed $TOTALFAILED failed" >> $REPORTSFILE
 
 echo "cleaning temp..."
-rm "$TEMPFOLDER/*"
+rm "$TEMPFOLDER/"*
