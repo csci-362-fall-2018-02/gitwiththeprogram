@@ -3,15 +3,14 @@
 # then outputs to a file in the formal of testResults(counter).txt
 
 COUNTER='1'
-REPORTSFILE='./reports/testResults'$COUNTER'.txt'
-COMPAREFILE='./reports/test'$COUNTER'-correct.txt'
-echo "here"
+REPORTSFILE=$(realpath './reports/testResults'$COUNTER'.txt')
+COMPAREFILE=$(realpath './reports/test'$COUNTER'-correct.txt')
+TEMPFOLDER=$(realpath temp)
 while [ -f $REPORTSFILE ]
 do
    COUNTER=$((COUNTER+1))
-   REPORTSFILE='./reports/testResults'$COUNTER'.txt'
-   COMPAREFILE='./reports/test'$COUNTER'-correct.txt'
-   TEMPFILE='./temp/tempfile'$COUNTER'.txt'
+   REPORTSFILE=$(realpath './reports/testResults'$COUNTER'.txt')
+   COMPAREFILE=$(realpath './reports/test'$COUNTER'-correct.txt')
 done
 
 cd testCasesExecutables
@@ -19,30 +18,35 @@ echo -n "Running all tests in folder: "
 pwd
 echo "Outputting report to:" $REPORTSFILE
 
+echo $TEMPFOLDER
+
+#iterate through entries
 for entry in *;
 do
   echo
-  echo -n $entry
-  TEMPFILE='./temp/tempfile'$entry
-  python ./../scripts/testInterpreter.py $entry
-  #took this out becuase we want the python script to make a files
-  #not make a file of everything printed to terminal
-  #> ./../$TEMPFILE
-  if diff ./../$TEMPFILE ./../$COMPAREFILE >/dev/null 2>&1
+  echo -n 'Running test with commands stored in file: '
+  echo $entry
+
+  TEMPFILE=$TEMPFOLDER'/tempfile'$entry
+  echo -n "outputting to tempfile located at "
+  echo $TEMPFILE
+  python ./../scripts/testInterpreter.py $entry $TEMPFILE
+  
+  #compares files, routes actual diff output to be deleted, just tests if they're equal
+  if diff $TEMPFILE $COMPAREFILE >/dev/null 2>&1
   then
      echo " passed"
-     echo -n $entry >> ./../$REPORTSFILE
-     echo " passed" >> ./../$REPORTSFILE
+     echo -n $entry >> $REPORTSFILE
+     echo " passed" >> $REPORTSFILE
   else
      echo " failed"
-     echo -n $entry >> ./../$REPORTSFILE
-     echo " failed" >> ./../$REPORTSFILE
+     echo -n $entry >> $REPORTSFILE
+     echo " failed" >> $REPORTSFILE
   fi
+  echo
 done
 cd ..
 
-#commented out for de-bugging purposes
-
-# echo "cleaning temp"
-# cd ./temp/
-# rm ./*
+echo "cleaning temp..."
+cd $TEMPFOLDER
+rm ./*
