@@ -1,0 +1,1 @@
+nvim <space> test7-output.txt <enter> <i> test <left> <left> <left> <left> <esc> e <i> <right> insert <esc> :wq <enter>
