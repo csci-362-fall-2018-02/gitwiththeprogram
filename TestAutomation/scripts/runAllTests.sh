@@ -1,17 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
 #
-# MASTER BASH SCRIPT - runAllScripts 
+# MASTER BASH SCRIPT - runAllScripts
 #
 # This bash script runs the testInterpreter python file on every command
-# specified in the testCasesExecutables folder, providing it a temp file 
+# specified in the testCasesExecutables folder, providing it a temp file
 # which corresponds with that file
 # it then compares the files to their expected output stored in the testCases folder
 # Then outputs whether or not the files were the same to it's respective reportfile
 # Report files increment (1, 2, 3) so they don't overwrite
 # temp folder is wiped after each execution, so don't put anything in there
 #
-# All paths are absolute, so the script should work from anywhere so long as 
+# All paths are absolute, so the script should work from anywhere so long as
 # The directory structure is set up properly
 # In the future, this script could handle generating the final report... etc
 # Of course, it could also call a python script to do the heavy lifting
@@ -58,7 +58,7 @@ do
 
   TEMPFILE="$TEMPFOLDER/tempfile$(basename $entry)"
   COMPAREFILE="$COMPAREFOLDER/correct-$(basename $entry)"
-  
+
   echo "outputting to tempfile located at $TEMPFILE"
 
   # what is passed in is now BOTH full paths. eg. instead of test1 it will be
@@ -66,26 +66,34 @@ do
   # instead of just test1.txt. this is very useful because this location is
   # directory independent. No need to change directories
   # but, if you just want the test1.txt, you can use basename, as I did above
-  # eg. $(basename $entry) 
+  # eg. $(basename $entry)
 
  if $DEBUG
   then
      echo "passing files $entry and $TEMPFILE to the python script"
  fi
 
-  python $SCRIPTSFOLDER/pocTestInterpreter.py $entry $TEMPFILE 
-  
+
+ python $SCRIPTSFOLDER/pocTestInterpreter.py $entry $TEMPFILE
+
+
+
   #compares files, routes actual diff output to be deleted
- if $DEBUG 
+ if $DEBUG
   then
      echo "comparing \"$(cat $TEMPFILE)\" and \"$(cat $COMPAREFILE)\""
  fi
- if diff $TEMPFILE $COMPAREFILE >/dev/null 2>&1
+
+ OUTDIFF=diff -B -b $TEMPFILE $COMPAREFILE
+ echo $OUTDIFF
+ if [ -z "$OUTDIFF" ];
+ #diff -B -b $TEMPFILE $COMPAREFILE >/dev/null 2>&1
   then
      echo " passed "
      echo "$entry passed" >> $REPORTSFILE
      TOTALPASSED=$((TOTALPASSED+1))
   else
+     echo $OUTDIFF
      echo " failed"
      echo "$entry failed" >> $REPORTSFILE
      TOTALFAILED=$((TOTALFAILED+1))
