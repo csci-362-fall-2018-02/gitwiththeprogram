@@ -1,0 +1,1 @@
+nvim <space> test8-output.txt <enter> <i> reallylongword <esc> b <i> <right> beforetheword <esc> :wq <enter>
