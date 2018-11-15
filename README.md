@@ -27,7 +27,7 @@ Installing PyAutoGUI
 **`sudo apt-get install python-tk`**  
 **`sudo apt-get install python-dev`**  
 **`pip install pyautogui`**  
-3. Move to the TestAutomation folder
+3. Cd to TestAutomation
 4. Run testing script: **Make sure and add the '&' to the end of the command**  
 **`./scripts/runAllTests.sh&`**  
 
