@@ -1,1 +1,1 @@
-nvim <space> test8-output.txt <enter> <i> reallylongword <left> <left> <left> <left> <esc> e <i> <right> aftertheword <esc> :wq <enter>
+nvim <space> test08-output.txt <enter> <i> reallylongword <left> <left> <left> <left> <esc> e <i> <right> aftertheword <esc> :wq <enter>
