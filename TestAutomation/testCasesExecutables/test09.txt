@@ -1,1 +1,1 @@
-nvim <space> test9-output.txt <enter> <i> reallylongword <esc> b <i> <right> beforetheword <esc> :wq <enter>
+nvim <space> test09-output.txt <enter> <i> reallylongword <esc> b <i> <right> beforetheword <esc> :wq <enter>
