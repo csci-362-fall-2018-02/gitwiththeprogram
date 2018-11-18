@@ -1,0 +1,3 @@
+This is the word pattern.
+Here's (insertion) pattern again.
+And here's pattern a third time.
