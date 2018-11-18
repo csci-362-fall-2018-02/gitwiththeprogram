@@ -1,0 +1,1 @@
+nvim <space> test24-output.txt <enter> <i> some text <esc> <r> <0> <R> replaced text. <esc>  :wq <enter> 
