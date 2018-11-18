@@ -1,0 +1,1 @@
+nvim <space> test18-output.txt <enter> <i> Testing the redo command <esc> <u> <ctrl> R  :wq <enter> 

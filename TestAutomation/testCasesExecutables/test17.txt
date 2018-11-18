@@ -1,1 +1,1 @@
-nvim <space> test04-output.txt <enter> <i> Testing the delete line command. <esc> <D> <D> <D> :wq <enter> 
+nvim <space> test17-output.txt <enter> <i> Testing the delete line command. <esc> <D> <D> <D> :wq <enter> 
