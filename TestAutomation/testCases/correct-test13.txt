@@ -1,0 +1,2 @@
+This is the word pattern.
+The word (insertion) pattern has seven letters.
