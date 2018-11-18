@@ -1,1 +1,1 @@
-nvim <space> test6-output.txt <enter> <i> Testing gg comand. <esc> gg <i> Inserting at front. <esc> :wq <enter>
+nvim <space> test06-output.txt <enter> <i> Testing gg comand. <esc> gg <i> Inserting at front. <esc> :wq <enter>
