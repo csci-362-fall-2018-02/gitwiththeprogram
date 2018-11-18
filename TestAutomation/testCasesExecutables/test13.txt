@@ -1,0 +1,1 @@
+nvim <space> test13-output.txt <enter> <i> This is the word pattern. <enter> The word pattern has seven letters. <esc> ?pattern <enter> <i> (insertion) <esc> :wq <enter>
