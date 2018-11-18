@@ -1,0 +1,1 @@
+nvim <space> test04-output.txt <enter> <i> Testing the delete command. <esc> <X> <X> <X> :wq <enter> 
