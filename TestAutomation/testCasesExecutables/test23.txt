@@ -1,0 +1,1 @@
+nvim <space> test23-output.txt <enter> <i> Text <esc> <r> <.>  :wq <enter> 
