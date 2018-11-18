@@ -1,0 +1,1 @@
+nvim <space> test15-output.txt <enter> <i> This is pattern 1. <enter> This is pattern 2. <enter> This is pattern 3. <esc> /pattern <enter> <n> <i> (insertion) <esc> :wq <enter>  
