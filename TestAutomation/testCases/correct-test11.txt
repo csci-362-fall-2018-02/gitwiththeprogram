@@ -1,0 +1,2 @@
+This text contains two instances of the word (insertion) pattern.
+The word pattern has seven letters.
