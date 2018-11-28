@@ -1,1 +1,2 @@
+Test another way to have the ability to delete character (X command).
 nvim <space> test16-output.txt <enter> <i> Testing the delete command. <esc> <X> <X> <X> :wq <enter> 
