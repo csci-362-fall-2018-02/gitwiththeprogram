@@ -1,1 +1,2 @@
+Test ability to delete an entire line (D command).
 nvim <space> test17-output.txt <enter> <i> Testing the delete line command. <esc> <D> <D> <D> :wq <enter> 
