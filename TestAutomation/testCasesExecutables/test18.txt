@@ -1,1 +1,2 @@
+Test the ability to undo text and then redo text (combination of u command and ctrl-R command).
 nvim <space> test18-output.txt <enter> <i> Testing the redo command <esc> <u> <ctrl> R  :wq <enter> 
