@@ -1,1 +1,2 @@
+Test another way to move down in text and delete text (combination of + and D command).
 nvim <space> test21-output.txt <enter> <i> Yes <enter> No <enter> Yes <esc> <k> <k> <k> <+> <D>  :wq <enter> 

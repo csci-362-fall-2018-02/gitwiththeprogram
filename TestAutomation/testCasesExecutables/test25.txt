@@ -1,1 +1,2 @@
+Test the repeat last change function (. command).
 nvim <space> test25-output.txt <enter> <i> text <esc> <.> <.> <.> <esc>  :wq <enter> 
