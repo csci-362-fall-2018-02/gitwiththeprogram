@@ -1,1 +1,2 @@
+Test the ability to replace a char with another char (r command).
 nvim <space> test23-output.txt <enter> <i> Text <esc> <r> <.>  :wq <enter> 
