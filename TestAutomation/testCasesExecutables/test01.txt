@@ -1,2 +1,2 @@
-This test was made to test the insert function of neovim.
+Test ability to write and save a new file (:wq command).
 nvim <space> test01-output.txt <enter> <i> Testing the insert function <enter> <esc> :wq <enter>
