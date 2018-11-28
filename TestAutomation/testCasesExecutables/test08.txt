@@ -1,1 +1,2 @@
+Test ability to open a file, enter text, and close without saving (:q! command)
 nvim <space> test08-output.txt <enter> <i> reallylongword <left> <left> <left> <left> <esc> e <i> <right> aftertheword <esc> :wq <enter>

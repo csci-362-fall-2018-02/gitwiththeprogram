@@ -1,0 +1,26 @@
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test01.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test02.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test03.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test04.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test05.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test06.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test07.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test08.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test09.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test10.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test11.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test12.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test13.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test14.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test15.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test16.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test17.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test18.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test19.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test20.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test21.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test22.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test23.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test24.txt passed
+/home/misae/gitwiththeprogram/TestAutomation/testCasesExecutables/test25.txt passed
+RESULTS: 25 passed 0 failed

@@ -1,1 +1,2 @@
+Test ability to open a file, enter text, and close without saving (:q! command)
 nvim <space> test07-output.txt <enter> <i> This is a line. <left> <left> <left> <left> <left> <left> <left> <left> <left> <left> <left> <left> <left> <left> <left> <esc> $ <i> <right> After the line. <esc> :wq <enter>

@@ -1,1 +1,2 @@
-nvim <space> test11-output.txt <enter> <i> This text contains two instances of the word pattern. <enter> The word pattern has seven letters. <esc> /pattern <enter> <i> (insertion) <esc> :wq <enter>  
+Test ability to open a file, enter text, and close without saving (:q! command)
+nvim <space> test11-output.txt <enter> <i> This text contains two instances of the word pattern. <enter> The word pattern has seven letters. <esc> /pattern <enter> <i> (insertion) <esc> :wq <enter>
