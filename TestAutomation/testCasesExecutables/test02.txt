@@ -1,1 +1,2 @@
+Test ability to append to an existing file (:o command).
 nvim <space> test02-output.txt <enter> <o> Testing the o function <enter> <esc> :wq <enter> 
