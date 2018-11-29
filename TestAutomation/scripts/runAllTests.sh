@@ -34,6 +34,8 @@ echo "Using temp folder: $TEMPFOLDER"
 echo "Using tests folder: $TESTSFOLDER"
 echo "Using compare folder: $COMPAREFOLDER"
 echo "Using reports folder: $REPORTSFOLDER"
+echo "Creating working temp directory"
+mkdir -p $TEMPFOLDER
 
 # Uses a counter-based system. Reports that are generated dont overwrite the previous
 COUNTER='1'
