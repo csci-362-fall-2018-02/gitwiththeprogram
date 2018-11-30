@@ -1,2 +1,2 @@
-Test ability to open a file, enter text, and close without saving (:q! command)
+Test ability to undo changes to the last line (u command).
 nvim <space> test05-output.txt <enter> <i> Testing the u function <esc> <o> this will be undone <esc> <u> :wq <enter>

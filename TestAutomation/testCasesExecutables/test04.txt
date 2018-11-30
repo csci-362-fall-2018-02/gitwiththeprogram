@@ -1,2 +1,2 @@
-Test ability to open a file, enter text, and close without saving (:q! command)
+Test ability to delete a character (x command).
 nvim <space> test04-output.txt <enter> <i> Testing the delete command. <esc> <x> <x> <x> :wq <enter>

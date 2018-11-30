@@ -1,2 +1,2 @@
-Test ability to open a file, enter text, and close without saving (:q! command)
+Test ability to find the first instance of a pattern in text (2/ command).
 nvim <space> test12-output.txt <enter> <i> This is the word pattern. <enter> Here's pattern again. <enter> And here's pattern a third time. <esc> 2/pattern <enter> <i> (insertion) <esc> :wq <enter>

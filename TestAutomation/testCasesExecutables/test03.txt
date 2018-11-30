@@ -1,2 +1,2 @@
-Test ability to open a file, enter text, and close without saving (:q! command)
+Test ability to open a file, enter text, and close without saving (:q! command).
 nvim <space> test03-output.txt <enter> <i> Testing the :q! function. Changes shouldn't be made. <enter> <esc> :wq nvim <space> test3-output.txt <enter> <o> type this <esc> :q! <enter>
