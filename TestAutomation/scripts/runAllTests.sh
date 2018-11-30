@@ -39,17 +39,19 @@ mkdir -p $TEMPFOLDER
 
 # Uses a counter-based system. Reports that are generated dont overwrite the previous
 COUNTER='1'
-REPORTSFILE="$REPORTSFOLDER/testResults$COUNTER.txt"
+REPORTSFILE="$REPORTSFOLDER/testResults$COUNTER.html"
 while [ -f $REPORTSFILE ]
 do
    COUNTER=$((COUNTER+1))
-   REPORTSFILE="$REPORTSFOLDER/testResults$COUNTER.txt"
+   REPORTSFILE="$REPORTSFOLDER/testResults$COUNTER.html"
 done
 
 #echo -n "Running all tests in folder: $(pwd)"
 #echo "Outputting report to:$REPORTSFILE"
 
 #iterate through entries
+echo "adding base html head to report file"
+cat $SCRIPTSFOLDER/baseReportHead.txt > $REPORTSFILE
 
 TOTALPASSED=0
 TOTALFAILED=0
@@ -78,33 +80,43 @@ do
 
  python $SCRIPTSFOLDER/pocTestInterpreter.py $entry $TEMPFILE
 
-
-
   #compares files, routes actual diff output to be deleted
  if $DEBUG
   then
      echo "comparing \"$(cat $TEMPFILE)\" and \"$(cat $COMPAREFILE)\""
  fi
 
+ echo "<tr>" >> $REPORTSFILE
+ echo "<td>$(basename $entry)</td>" >> $REPORTSFILE
+ echo "<td>$(head -n 1 $entry)</td>" >> $REPORTSFILE
+ echo -n "<td id=\"d01\">" >> $REPORTSFILE
+
  OUTDIFF=diff -B -b $TEMPFILE $COMPAREFILE
  echo $OUTDIFF
  if [ -z "$OUTDIFF" ];
  #diff -B -b $TEMPFILE $COMPAREFILE >/dev/null 2>&1
-  then
-     echo " passed "
-     echo "$entry passed" >> $REPORTSFILE
+ then
+
+     echo "$entry passed"
+     echo -n "passed" >> $REPORTSFILE
      TOTALPASSED=$((TOTALPASSED+1))
-  else
-     echo $OUTDIFF
-     echo " failed"
-     echo "$entry failed" >> $REPORTSFILE
+ else
+     echo "$entry failed"
+     echo -n "failed" >> $REPORTSFILE
      TOTALFAILED=$((TOTALFAILED+1))
-  fi
-  echo
+ fi
+  echo "</td>" >> $REPORTSFILE
+  echo "</tr>" >> $REPORTSFILE
 done
 
-echo "tests finished, overall results: $TOTALPASSED passed $TOTALFAILED failed"
-echo "RESULTS: $TOTALPASSED passed $TOTALFAILED failed" >> $REPORTSFILE
+echo "$TOTALPASSED passed $TOTALFAILED failed"
+echo "<tr id=\"r01\">" >> $REPORTSFILE
+echo "<td colspan=\"2\">Overall Results</td>" >> $REPORTSFILE
+echo "<td id=\"d01\">$TOTALPASSED passed $TOTALFAILED failed</td>" >> $REPORTSFILE
+echo "adding tail html to reports file"
+cat $SCRIPTSFOLDER/baseReportTail.txt >> $REPORTSFILE
 
 echo "cleaning temp..."
 rm "$TEMPFOLDER/"*
+echo "displaying report.."
+xdg-open $REPORTSFILE
